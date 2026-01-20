@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import konfiqurasiya.Ayarlar;
-import org.openqa.selenium.devtools.v121.debugger.Debugger;
+
 
 import static io.restassured.RestAssured.given;
 
