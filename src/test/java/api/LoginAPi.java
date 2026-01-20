@@ -25,7 +25,7 @@ public class LoginAPi {
                               }
                               """.formatted(email,password))
                       .when()
-                      .post(Ayarlar.baseUrl+"api/auth/login");
+                      .post(Ayarlar.baseUrl+"/api/auth/login");
       if (response.statusCode()!=200){
           throw new RuntimeException("login alinmadi status:"+response.statusCode()+" Body:"+response.asString());
       }
