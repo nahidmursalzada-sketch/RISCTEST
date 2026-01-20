@@ -19,7 +19,15 @@ jobs:
           java-version: "17"
           cache: maven
 
+      - name: Show Java & Maven versions
+        run: |
+          java -version
+          mvn -version
+
       - name: Run tests (debug)
+        env:
+          VEO_EMAIL: ${{ secrets.VEO_EMAIL }}
+          VEO_PASSWORD: ${{ secrets.VEO_PASSWORD }}
         run: mvn -e -X -DtrimStackTrace=false clean test
 
       - name: Print surefire reports
@@ -38,9 +46,3 @@ jobs:
         with:
           name: surefire-reports
           path: target/surefire-reports
-      - name: Run tests (debug)
-        env:
-          VEO_EMAIL: ${{ secrets.VEO_EMAIL }}
-          VEO_PASSWORD: ${{ secrets.VEO_PASSWORD }}
-        run: mvn -e -X -DtrimStackTrace=false clean test
-
